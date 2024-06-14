@@ -8,10 +8,6 @@ import mlflow
 # from sklearn.metrics import mean_squared_error
 # from sklearn.pipeline import make_pipeline
 
-MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
-# RUN_ID = "df074bdf7f034191b194f5e26621c8eb"
-mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-
 
 def generate_uuids(n):
     ride_ids = []
@@ -88,6 +84,10 @@ def run():
     run_id = sys.argv[4] # "df074bdf7f034191b194f5e26621c8eb"
     input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/{taxi_type}_tripdata_{year:04d}-{month:02d}.parquet'
     output_file = f'output/{taxi_type}/{year:04d}-{month:02d}.parquet'
+
+    MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
+    # RUN_ID = "df074bdf7f034191b194f5e26621c8eb"
+    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
     apply_model(input_file, run_id, output_file)
 
