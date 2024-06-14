@@ -81,12 +81,12 @@ def run():
     taxi_type = sys.argv[1] 
     year = int(sys.argv[2]) 
     month = int(sys.argv[3]) 
-    run_id = sys.argv[4] # "df074bdf7f034191b194f5e26621c8eb"
+    run_id = sys.argv[4] # "6f2c9482847a4cc5bb0399f216d99d2c"
     input_file = f'https://d37ci6vzurychx.cloudfront.net/trip-data/{taxi_type}_tripdata_{year:04d}-{month:02d}.parquet'
     output_file = f'output/{taxi_type}/{year:04d}-{month:02d}.parquet'
 
     MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
-    # RUN_ID = "df074bdf7f034191b194f5e26621c8eb"
+    # RUN_ID = "6f2c9482847a4cc5bb0399f216d99d2c"
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
     apply_model(input_file, run_id, output_file)
